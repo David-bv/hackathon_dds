@@ -3,9 +3,24 @@ import Form from 'react-bootstrap/Form';
 import Lottie from 'lottie-react';
 import animationData from '../Animations/108078-worm-loader.json'
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
+import withReactContent from "sweetalert2-react-content";
+
 function FormBuy() {
   const [loading, setLoading] = useState(false);
+  const MySwal = withReactContent(Swal)
+
   const handleBuy = () => {
+    MySwal.fire({
+      html: <i>Gracias por tu compra!</i>,
+      icon: 'success',
+      background: '#F8F9FA',
+      color: '#000',
+      width: '300px',
+      padding: '25px',
+      confirmButtonColor: '0b5ed7',
+      heightAuto: 'false',
+    })
     console.log(loading);
     setTimeout(() => {
       setLoading(true);
