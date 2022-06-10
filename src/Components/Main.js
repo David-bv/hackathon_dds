@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
 
-function Main ({setProducts}) {
+function Main () {
     
     const [movieList, setMovieList] = useState([]);
     
@@ -21,7 +21,7 @@ function Main ({setProducts}) {
         console.log(apiData);
       })
 
-    }, [])
+    }, [setMovieList])
 
 return (
         <div className='row' >
@@ -35,7 +35,7 @@ return (
                         <Card.Text>
                         {movie.overview}
                         </Card.Text>
-                        <Button variant="primary" onClick={handleClick(movie)}>Añadir al carrito</Button>
+                        <Button variant="primary">Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
                 )
