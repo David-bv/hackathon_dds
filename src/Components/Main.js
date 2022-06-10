@@ -2,8 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
 import { ContainerMovies } from '../Styles/ContainerMovies';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 function Main ({setProductos, productos}) {
+    const MySwal = withReactContent(Swal)
     
     const [movieList, setMovieList] = useState([]);
     const [serieList, setSerieList] = useState([]);
@@ -13,7 +17,8 @@ function Main ({setProductos, productos}) {
        let pelicula = []
         movieList.forEach(innerMovie => {
             if(parseInt(innerMovie.id) ===parseInt(id)){
-                pelicula = innerMovie
+                pelicula = innerMovie;
+                MySwal.fire(<p>Artículo agregado con éxito</p>)
             }
         })
         if(productos.includes(pelicula)){
@@ -28,16 +33,19 @@ function Main ({setProductos, productos}) {
     
     }
     function handleClickSerie(e){
+        
         let id = e.target.id
        console.log(id)
        let pelicula = []
        serieList.forEach(innerMovie => {
             if(parseInt(innerMovie.id) ===parseInt(id)){
                 pelicula = innerMovie
+                MySwal.fire(<p>Artículo agregado con éxito</p>)
             }
         })
         if(productos.includes(pelicula)){
-            return console.log('Ya lo agrego')            
+            return console.log('Ya lo agrego') 
+                       
         }
         setProductos(prev => [
             ...prev, pelicula
@@ -86,7 +94,7 @@ return (
                         {movie.overview.substring(0,50)}...
                         </Card.Text> */}
                         <p>$1000</p>
-                        <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito 😀</Button>
+                        <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
                 )
