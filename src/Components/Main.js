@@ -2,14 +2,26 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
 
-function Main () {
+function Main ({setProductos}) {
     
     const [movieList, setMovieList] = useState([]);
     
-    function handleClick(movie){
-        setMovieList((prev) => {
-            return [...prev, movie];
+    function handleClick(e){
+        let id = e.target.id
+       console.log(id)
+       let pelicula = []
+        movieList.forEach(innerMovie => {
+            if(parseInt(innerMovie.id) ===parseInt(id)){
+                pelicula = innerMovie
+            }
         })
+        setProductos(prev => [
+            ...prev, pelicula
+        ])
+        
+        console.log('pelicula', pelicula)
+
+    
     }
     const [serieList, setSerieList] = useState([]);
 
@@ -49,7 +61,7 @@ return (
                         <Card.Text>
                         {movie.overview.substring(0,50)}...
                         </Card.Text>
-                        <Button variant="primary">Añadir al carrito</Button>
+                        <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito 😀</Button>
                     </Card.Body>
                 </Card>
                 )
