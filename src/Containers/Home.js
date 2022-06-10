@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Header from '../Components/Header'
 import NavBarHeader from '../Components/NavBarHeader'
 
@@ -8,6 +9,9 @@ const Home = () => {
       <NavBarHeader/>
       <Header/>   
       
+      <button>
+        <Link to="/products">asdhsajkd</Link>
+      </button>
     </>
   )
 }

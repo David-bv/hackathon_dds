@@ -4,13 +4,13 @@ import { url } from '../helpers/url'
 
 const RenderProducts = () => {
 
-    const [Data, setData] = useState([])
+    const [data, setData] = useState([])
 
     const showData = () => {
         axios.get(url)
             .then(response => {
                 console.log(response.data.results);
-                setData(response.data);
+                setData(response.data.results);
             }).catch(error => {
                 console.log(error);
             })
@@ -21,7 +21,16 @@ const RenderProducts = () => {
     }, [])
 
   return (
-    <div>RenderProducts</div>
+    <div>
+        {
+            data.map((item) => (
+                    <div key={item.id}>
+                        <h1>{item.title}</h1>
+                        <p>{item.vote_average}</p>
+                    </div>
+                ))
+        }
+    </div>
   )
 }
 
