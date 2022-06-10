@@ -11,7 +11,7 @@ const Home = () => {
     <>
       <NavBarHeader/>
       <Header/>   
-      <Main />
+      <Main setProductos={setProducts} />
       
       <button>
         <Link to="/products">asdhsajkd</Link>
