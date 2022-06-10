@@ -1,11 +1,25 @@
 import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import {FiShoppingCart} from 'react-icons/fi'
+import ShopingCard from './ShopingCard';
 
 const Header = () => {
+ 
+  function handleHover(){
+    const shopingCart = document.querySelector('.shoping-cart')
+    if(shopingCart.classList.contains('closed')){
+      shopingCart.classList.remove('closed')
+      shopingCart.classList.add('open')
+    } else {
+      shopingCart.classList.remove('open')
+      shopingCart.classList.add('closed')
+    }
+
+  }
+
   return (
     <>
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
   <Container>
   <Navbar.Brand href="#home">La tiendita</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -15,8 +29,9 @@ const Header = () => {
       <Nav.Link href="#pricing"> ----- </Nav.Link>      
     </Nav>
     <Nav>
-      <FiShoppingCart/>
-      <Nav.Link href="#deets">Carrito de compras  <FiShoppingCart/></Nav.Link>  
+    
+      <Nav.Link href="#deets" onClick={handleHover}>Carrito de compras<FiShoppingCart/></Nav.Link>  
+      <ShopingCard />
     </Nav>
   </Navbar.Collapse>
   </Container>

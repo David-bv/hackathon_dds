@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-
+import image from '../Assets/img/header.webp'
 export const HeaderStyled = styled.header`
-  background-color: #f5f5f5;
-  padding: 0.5rem;
+  padding: 0.5rem;  
+  background:url(${image});
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,5 +12,15 @@ export const HeaderStyled = styled.header`
   width: 90%;
   height: 300px;
   border-radius: 10px;
-  border-bottom: 1px solid #e5e5e5;
+  .container{
+    width: 100%;
+    padding: 0.5rem;
+    ;
+    background-color: darkblue;    
+    opacity: 0.7;
+    h1, h3{
+      color: white;
+      opacity:1;
+    }
+  }
 `

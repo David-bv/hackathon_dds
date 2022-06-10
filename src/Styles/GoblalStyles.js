@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   #root{
     height: 100vh;
     width: 100vw;
-    background-color: lightblue;
+    background-color: white;
     display: flex;
     flex-direction: column;
 
