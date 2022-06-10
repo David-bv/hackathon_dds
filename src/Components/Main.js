@@ -61,6 +61,7 @@ return (
                         <Card.Text>
                         {movie.overview.substring(0,50)}...
                         </Card.Text>
+                        <p>$1000</p>
                         <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito 😀</Button>
                     </Card.Body>
                 </Card>
@@ -78,10 +79,11 @@ return (
                     <Card className='col-3' key={idx}>
                     <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`} />
                     <Card.Body>
-                        <Card.Title>{serie.title}</Card.Title>
+                        <Card.Title>{serie.name}</Card.Title>
                         <Card.Text>
                         {serie.overview.substring(0,20)}
                         </Card.Text>
+                        <p>$1500</p>
                         <Button variant="primary">Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
