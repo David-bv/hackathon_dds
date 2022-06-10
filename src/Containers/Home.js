@@ -5,11 +5,13 @@ import NavBarHeader from '../Components/NavBarHeader'
 import Main from '../Components/Main'
 
 const Home = () => {
+  const [products, setProducts] = React.useState([])
+
   return (
     <>
       <NavBarHeader/>
       <Header/>   
-      <Main/>
+      <Main setProducts={setProducts}/>
       
       <button>
         <Link to="/products">asdhsajkd</Link>
