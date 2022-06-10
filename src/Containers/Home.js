@@ -9,12 +9,12 @@ const Home = () => {
 
   return (
     <>
-      <NavBarHeader productos={products}/>
+      <NavBarHeader setProductos={setProducts} productos={products}/>
       <Header/>   
       <Main setProductos={setProducts} productos={products} />
       
       <button>
-        <Link to="/products">asdhsajkd</Link>
+        <Link to="/shop">asdhsajkd</Link>
       </button>
     </>
   )

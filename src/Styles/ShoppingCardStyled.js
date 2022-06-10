@@ -5,7 +5,7 @@ export const ShopingCartStyled = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: fit-content;
 
   
   .closed{
