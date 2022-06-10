@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <>
-      <NavBarHeader/>
+      <NavBarHeader productos={products}/>
       <Header/>   
       <Main setProductos={setProducts} />
       

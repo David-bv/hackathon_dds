@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import image from '../Assets/img/header.webp'
 export const HeaderStyled = styled.header`
+
   padding: 0.5rem;  
   background:url(${image});
   background-size: cover;

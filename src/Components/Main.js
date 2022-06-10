@@ -8,13 +8,18 @@ function Main ({setProductos}) {
     
     function handleClick(e){
         let id = e.target.id
-       
-        let movie = movieList.find(innerMovie => {
-            console.log('innerMovie', innerMovie)
-            return innerMovie.id === id
+       console.log(id)
+       let pelicula = []
+        movieList.forEach(innerMovie => {
+            if(parseInt(innerMovie.id) ===parseInt(id)){
+                pelicula = innerMovie
+            }
         })
-        console.log('movie', movie)
-        console.log(e.target.id)
+        setProductos(prev => [
+            ...prev, pelicula
+        ])
+        
+        console.log('pelicula', pelicula)
 
     
     }

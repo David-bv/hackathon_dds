@@ -14,8 +14,13 @@ export const ShopingCartStyled = styled.section`
   }
   .open{
     display: flex;
-    height: 300px;
+    flex-direction: column;
+    height:fit-content;
     background-color: white;
+    ul img{
+      height: 50px;
+    }
+    z-index: 100;
   }
   
 `
