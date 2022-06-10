@@ -85,6 +85,7 @@ return (
                         {/* <Card.Text>
                         {movie.overview.substring(0,50)}...
                         </Card.Text> */}
+                        <p>$1000</p>
                         <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito 😀</Button>
                     </Card.Body>
                 </Card>
@@ -106,6 +107,7 @@ return (
                         <Card.Text>
                         {serie.overview.substring(0,20)}
                         </Card.Text>
+                        <p>$1500</p>
                         <Button variant="primary" id={serie.id} onClick={handleClickSerie}>Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
