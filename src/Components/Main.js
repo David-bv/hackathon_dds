@@ -8,7 +8,11 @@ function Main ({setProductos}) {
     
     function handleClick(e){
         let id = e.target.id
-        let movie = movieList.find(movie => movie.id === id)
+       
+        let movie = movieList.find(innerMovie => {
+            console.log('innerMovie', innerMovie)
+            return innerMovie.id === id
+        })
         console.log('movie', movie)
         console.log(e.target.id)
 
