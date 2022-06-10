@@ -28,7 +28,7 @@ function Main ({setProductos}) {
 
     }, [setMovieList])
     useEffect(() => {
-      const endSeriePoint = 'https://api.themoviedb.org/3/discover/tv?api_key=b9b8f01cf10467bb105fe2dcbc240863&language=es-ES&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0';
+      const endSeriePoint = 'https://api.themoviedb.org/3/tv/top_rated?api_key=b9b8f01cf10467bb105fe2dcbc240863&language=en-US&page=1';
       axios.get(endSeriePoint)
       .then(response => {
         const apiDataSerie = response.data;
@@ -50,7 +50,7 @@ return (
                     <Card.Body>
                         <Card.Title>{movie.title}</Card.Title>
                         <Card.Text>
-                        {movie.overview}
+                        {movie.overview.substring(0,50)}...
                         </Card.Text>
                         <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito 😀</Button>
                     </Card.Body>
@@ -71,7 +71,7 @@ return (
                     <Card.Body>
                         <Card.Title>{serie.title}</Card.Title>
                         <Card.Text>
-                        {serie.overview}
+                        {serie.overview.substring(0,20)}
                         </Card.Text>
                         <Button variant="primary">Añadir al carrito</Button>
                     </Card.Body>
