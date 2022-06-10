@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const ShopingCartStyled = styled.section`  
-  position: absolute;
-  top: 50px;  
+ 
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: fit-content;
 
   
   .closed{
@@ -17,9 +16,25 @@ export const ShopingCartStyled = styled.section`
     flex-direction: column;
     height:fit-content;
     background-color: white;
-    ul img{
+    position: absolute;
+    top: 50px;  
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        border-bottom: 1px solid #ccc;
+      }
+     img{
+
       height: 50px;
     }
+  }
     z-index: 100;
   }
   

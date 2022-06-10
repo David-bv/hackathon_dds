@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import {FiShoppingCart} from 'react-icons/fi'
 import ShopingCard from './ShopingCard';
 
-const Header = ({productos}) => {
+const Header = ({productos, setProductos}) => {
  
   function handleHover(){
     const shopingCart = document.querySelector('.shoping-cart')
@@ -31,7 +31,7 @@ const Header = ({productos}) => {
     <Nav>
     
       <Nav.Link href="#deets" onClick={handleHover}>Carrito de compras<FiShoppingCart/></Nav.Link>  
-      <ShopingCard productos={productos} />
+      <ShopingCard productos={productos} setProductos={setProductos} />
     </Nav>
   </Navbar.Collapse>
   </Container>

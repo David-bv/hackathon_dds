@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
+import { ContainerMovies } from '../Styles/ContainerMovies';
 
-function Main ({setProductos}) {
+function Main ({setProductos, productos}) {
     
     const [movieList, setMovieList] = useState([]);
-    
+    const [serieList, setSerieList] = useState([]);
     function handleClick(e){
         let id = e.target.id
        console.log(id)
@@ -15,6 +16,9 @@ function Main ({setProductos}) {
                 pelicula = innerMovie
             }
         })
+        if(productos.includes(pelicula)){
+            return console.log('Ya lo agrego')            
+        }
         setProductos(prev => [
             ...prev, pelicula
         ])
@@ -23,7 +27,27 @@ function Main ({setProductos}) {
 
     
     }
-    const [serieList, setSerieList] = useState([]);
+    function handleClickSerie(e){
+        let id = e.target.id
+       console.log(id)
+       let pelicula = []
+       serieList.forEach(innerMovie => {
+            if(parseInt(innerMovie.id) ===parseInt(id)){
+                pelicula = innerMovie
+            }
+        })
+        if(productos.includes(pelicula)){
+            return console.log('Ya lo agrego')            
+        }
+        setProductos(prev => [
+            ...prev, pelicula
+        ])
+        
+        console.log('pelicula', pelicula)
+
+    
+    }
+   
 
     useEffect(() => {
       const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=b9b8f01cf10467bb105fe2dcbc240863&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
@@ -49,8 +73,8 @@ function Main ({setProductos}) {
 
 return (
     <>
-        <div className='row' >
             <h2>Películas</h2>
+        <ContainerMovies >
         {
             movieList.map((movie, idx) => {
                 return(
@@ -58,39 +82,41 @@ return (
                     <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                     <Card.Body>
                         <Card.Title>{movie.title}</Card.Title>
-                        <Card.Text>
+                        {/* <Card.Text>
                         {movie.overview.substring(0,50)}...
-                        </Card.Text>
+                        </Card.Text> */}
+                        <p>$1000</p>
                         <Button variant="primary" type='button' id={movie.id} onClick={handleClick} >Añadir al carrito 😀</Button>
                     </Card.Body>
                 </Card>
                 )
             })
         }
-        </div>
+        </ContainerMovies>
 
         <div>
-        <div className='row' >
             <h2>Series de TV</h2>
+        <ContainerMovies >
         {
             serieList.map((serie, idx) => {
                 return(
                     <Card className='col-3' key={idx}>
                     <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`} />
                     <Card.Body>
-                        <Card.Title>{serie.title}</Card.Title>
+                        <Card.Title>{serie.name}</Card.Title>
                         <Card.Text>
                         {serie.overview.substring(0,20)}
                         </Card.Text>
-                        <Button variant="primary">Añadir al carrito</Button>
+                        <p>$1500</p>
+                        <Button variant="primary" id={serie.id} onClick={handleClickSerie}>Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
                 )
             })
         }
+        </ContainerMovies >
         </div>
 
-        </div>
     </>
     )
 }

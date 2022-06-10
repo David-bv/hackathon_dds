@@ -17,7 +17,7 @@ export const HeaderStyled = styled.header`
     width: 100%;
     padding: 0.5rem;
     ;
-    background-color: darkblue;    
+       
     opacity: 0.7;
     h1, h3{
       color: white;
