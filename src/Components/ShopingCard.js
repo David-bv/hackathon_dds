@@ -3,9 +3,13 @@ import { Button } from "react-bootstrap";
 import { ShopingCartStyled } from "../Styles/ShoppingCardStyled";
 import { FaTrashAlt } from "react-icons/fa";
 import { ShoppingCart } from "./ModalShoping";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 const ShopingCard = ({ setProductos, productos }) => {
-  
+
   const [show, setShow] = useState(false);
+  const MySwal = withReactContent(Swal)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -27,9 +31,19 @@ const ShopingCard = ({ setProductos, productos }) => {
   }
   function handleEmptyCart() {
     setProductos([]);
+    MySwal.fire({
+      html: <i>Se han eliminado los elementos del carrito</i>,
+      icon: 'success',
+      background: '#F8F9FA',
+      color: '#000',
+      width: '300px',
+      padding: '25px',
+      confirmButtonColor: '0b5ed7',
+      heightAuto: 'false',
+    })
   }
 
-  function handleShop(){
+  function handleShop() {
     setShow(true)
 
   }
@@ -40,27 +54,26 @@ const ShopingCard = ({ setProductos, productos }) => {
         <ul>
           {productos?.length > 0
             ? productos.map((producto, idx) => {
-                return (
-                  <li key={idx}>
-                   
-                      <FaTrashAlt 
-                        id={producto.id} onClick={handleDelete}
-                        size={20}
-                        style={{
-                          cursor: "pointer",
+              return (
+                <li key={idx}>
 
-                        }}
-                      />
-                    
-                    <p>{producto.title ?? producto.name}</p>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${producto.poster_path}`}
-                      alt={producto.title}
-                    />
-                 
-                  </li>
-                );
-              })
+                  <FaTrashAlt
+                    id={producto.id} onClick={handleDelete}
+                    size={20}
+                    style={{
+                      cursor: "pointer",
+
+                    }}
+                  />
+
+                  <p>{producto.title ?? producto.name}</p>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${producto.poster_path}`}
+                    alt={producto.title}
+                  />
+                </li>
+              );
+            })
             : "No hay productos"}
           <li>
             <h2>Total: ${productos?.length * 1000}</h2>
@@ -78,7 +91,7 @@ const ShopingCard = ({ setProductos, productos }) => {
           </li>
         </ul>
       </div>
-      <ShoppingCart show={show} setShow={setShow} handleClose={handleClose}  handleShow={ handleShow} productos={productos} />
+      <ShoppingCart show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} productos={productos} />
     </ShopingCartStyled>
   );
 };

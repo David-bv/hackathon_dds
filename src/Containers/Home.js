@@ -14,7 +14,7 @@ const Home = () => {
       <Main setProductos={setProducts} productos={products} />
       
       <button>
-        <Link to="/products">asdhsajkd</Link>
+        <Link to="/shop">asdhsajkd</Link>
       </button>
     </>
   )
