@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
 
 function Main () {
-    
     const [movieList, setMovieList] = useState([]);
 
     useEffect(() => {
@@ -17,9 +16,8 @@ function Main () {
 
     }, [setMovieList])
 
-
 return (
-        <>
+        <div className='row' >
         {
             movieList.map((movie, idx) => {
                 return(
@@ -37,7 +35,7 @@ return (
             })
         }
 
-        </>
+        </div>
     )
 }
 export default Main
