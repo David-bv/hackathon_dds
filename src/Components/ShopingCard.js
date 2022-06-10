@@ -57,12 +57,13 @@ const ShopingCard = ({ setProductos, productos }) => {
                       src={`https://image.tmdb.org/t/p/w500/${producto.poster_path}`}
                       alt={producto.title}
                     />
+                 
                   </li>
                 );
               })
             : "No hay productos"}
           <li>
-            <h2>Total: {productos?.length}</h2>
+            <h2>Total: ${productos?.length * 1000}</h2>
           </li>
           <li>
             <Button
