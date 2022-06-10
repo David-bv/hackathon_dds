@@ -1,7 +1,32 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Lottie from 'lottie-react';
+import animationData from '../Animations/108078-worm-loader.json'
+import { useEffect, useState } from 'react';
 function FormBuy() {
+  const [loading, setLoading] = useState(false);
+  const handleBuy = () => {
+    console.log(loading);
+    setTimeout(() => {
+      setLoading(true);
+    }
+    , 2000);
+  }
+  useEffect(() => {
+
+    
+  }
+  , [loading]);
+  if(loading){
+    return (
+     
+        <Lottie
+          animationData={animationData}
+          />
+     
+    )
+
+  }
   return (
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -19,7 +44,7 @@ function FormBuy() {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Recordar mis datos" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" onClick={handleBuy}>
         Son mias!
       </Button>
     </Form>
